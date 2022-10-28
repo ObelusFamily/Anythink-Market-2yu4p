@@ -21,7 +21,7 @@ const Banner = (props) => {
       props.searchTitle(itemsPromise, itemsPromise(title), title);
     } else {
       const itemsPromise = agent.Items.byTitle;
-      props.searchTitle(itemsPromise, itemsPromise(""), "");
+      props.searchTitle(itemsPromise, itemsPromise(""), undefined);
     }
   };
 

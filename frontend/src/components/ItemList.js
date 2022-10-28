@@ -12,6 +12,10 @@ const ItemList = (props) => {
     return <div className="py-4">Loading...</div>;
   }
 
+  if (props.title === undefined) {
+    return <div className="py-4 no-items">No items are here... yet.</div>;
+  }
+
   if (props.items.length === 0) {
     return (
       <div id="empty" className="py-4 no-items">
