@@ -12,6 +12,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 const Banner = (props) => {
   const [title, setTitle] = React.useState("");
+  const [showSearch, setShowSearch] = React.useState(false);
 
   const handleChange = (e) => {
     const title = e.target.value;
@@ -25,19 +26,27 @@ const Banner = (props) => {
     }
   };
 
+  const onClickGet = () => {
+    setShowSearch(true);
+  };
+
   return (
     <div className="banner text-white">
       <div className="container p-4 text-center">
         <img src={logo} alt="banner" />
         <div>
-          <span id="get-part">A place to get </span>
-          <input
-            id="search-box"
-            type="text"
-            placeholder="What is that you truly desire?"
-            onChange={handleChange}
-            value={title}
-          ></input>
+          <span id="get-part">
+            A place to <span onClick={onClickGet}>get</span>{" "}
+          </span>
+          {showSearch && (
+            <input
+              id="search-box"
+              type="text"
+              placeholder="What is that you truly desire?"
+              onChange={handleChange}
+              value={title}
+            ></input>
+          )}
           <span> the cool stuff.</span>
         </div>
       </div>
