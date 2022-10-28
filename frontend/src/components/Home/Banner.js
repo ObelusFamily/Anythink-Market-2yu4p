@@ -5,8 +5,8 @@ import { connect } from "react-redux";
 import { SEARCH_BY_TITLE } from "../../constants/actionTypes";
 
 const mapDispatchToProps = (dispatch) => ({
-  searchTitle: (pager, payload) => {
-    dispatch({ type: SEARCH_BY_TITLE, pager, payload });
+  searchTitle: (pager, payload, searchTerm) => {
+    dispatch({ type: SEARCH_BY_TITLE, pager, payload, searchTerm });
   },
 });
 
@@ -18,10 +18,10 @@ const Banner = (props) => {
     setTitle(title);
     if (title.length >= 3) {
       const itemsPromise = agent.Items.byTitle;
-      props.searchTitle(itemsPromise, itemsPromise(title));
+      props.searchTitle(itemsPromise, itemsPromise(title), title);
     } else {
       const itemsPromise = agent.Items.byTitle;
-      props.searchTitle(itemsPromise, itemsPromise(""));
+      props.searchTitle(itemsPromise, itemsPromise(""), "");
     }
   };
 
