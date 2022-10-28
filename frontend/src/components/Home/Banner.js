@@ -35,8 +35,11 @@ const Banner = (props) => {
       <div className="container p-4 text-center">
         <img src={logo} alt="banner" />
         <div>
-          <span id="get-part">
-            A place to <button onClick={onClickGet}>get</button>{" "}
+          <span>
+            A place to{" "}
+            <button id="get-part" onClick={onClickGet}>
+              get
+            </button>{" "}
           </span>
           {showSearch && (
             <input
