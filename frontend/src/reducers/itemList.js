@@ -60,6 +60,7 @@ const reducer = (state = {}, action) => {
     case SEARCH_BY_TITLE:
       return {
         ...state,
+        searchTerm: action.searchTerm,
         pager: action.pager,
         items: action.payload.items,
         itemsCount: action.payload.itemsCount,
